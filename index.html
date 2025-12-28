@@ -285,8 +285,6 @@
       installButton.textContent = "Install App";
       installButton.className = "btn btn-outline";
       installButton.style.display = "none";
-      installButton.style.marginTop = "12px";
-      installButton.style.width = "100%";
 
       window.addEventListener("beforeinstallprompt", (e) => {
         // Prevent the mini-infobar from appearing
@@ -315,7 +313,13 @@
       window.addEventListener("DOMContentLoaded", () => {
         const buttonGroup = document.querySelector(".button-group");
         if (buttonGroup) {
-          buttonGroup.appendChild(installButton);
+          // Insert before the reset button to maintain order
+          const resetBtn = document.getElementById("resetBtn");
+          if (resetBtn && resetBtn.parentNode === buttonGroup) {
+            buttonGroup.insertBefore(installButton, resetBtn);
+          } else {
+            buttonGroup.appendChild(installButton);
+          }
         }
       });
 
