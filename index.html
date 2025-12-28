@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create professional invoices for your UGC work"
+    />
+    <meta name="theme-color" content="#000000" />
+    <title>UGC Invoice Generator</title>
+    <link rel="manifest" href="manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>UGC Invoice Generator</h1>
+        <p>Create professional invoices for your UGC work</p>
+      </header>
+
+      <div class="app-wrapper">
+        <div class="form-section">
+          <h2>Invoice Details</h2>
+          <form id="invoiceForm">
+            <div class="form-group">
+              <label for="issueDate">Issue Date *</label>
+              <input type="date" id="issueDate" required />
+            </div>
+
+            <div class="form-group">
+              <label for="invoiceNumber">Invoice Number *</label>
+              <input
+                type="text"
+                id="invoiceNumber"
+                placeholder="e.g., 038"
+                required
+              />
+            </div>
+
+            <h3>Client Information</h3>
+            <div class="form-group">
+              <label for="clientName">Client Name *</label>
+              <input
+                type="text"
+                id="clientName"
+                placeholder="e.g., SIDDHARTH BHANDARI"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="accountName">Account Name *</label>
+              <input
+                type="text"
+                id="accountName"
+                placeholder="e.g., Siddharth Bhandari"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="accountNumber">Account Number *</label>
+              <input
+                type="text"
+                id="accountNumber"
+                placeholder="e.g., 30120100005712"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="ifsc">IFSC Code *</label>
+              <input
+                type="text"
+                id="ifsc"
+                placeholder="e.g., BARBOJAWJAI"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="pan">PAN Number *</label>
+              <input
+                type="text"
+                id="pan"
+                placeholder="e.g., CDHPB3940G"
+                required
+              />
+            </div>
+
+            <h3>Service Details</h3>
+            <div class="form-group">
+              <label for="serviceDescription">Service Description *</label>
+              <input
+                type="text"
+                id="serviceDescription"
+                placeholder="e.g., 1 UGC Reel for Beyours"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="amount">Amount (₹) *</label>
+              <input
+                type="number"
+                id="amount"
+                placeholder="e.g., 7000"
+                required
+                min="0"
+              />
+            </div>
+
+            <h3>Company Information</h3>
+            <div class="form-group">
+              <label for="companyName">Company Name *</label>
+              <input
+                type="text"
+                id="companyName"
+                placeholder="e.g., BEYOURS ESSENTIALS PRIVATE LIMITED"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="companyAddress">Company Address *</label>
+              <textarea
+                id="companyAddress"
+                rows="2"
+                placeholder="e.g., 51, 3rd floor, DSIIDC, Scheme 1, okhla phase 2 – 110020"
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="gstin">GSTIN *</label>
+              <input
+                type="text"
+                id="gstin"
+                placeholder="e.g., 07AALCB3890RIZT"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="companyEmail1">Company Email 1 *</label>
+              <input
+                type="email"
+                id="companyEmail1"
+                placeholder="e.g., Ashishbaheti@beyours.in"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="companyEmail2">Company Email 2</label>
+              <input
+                type="email"
+                id="companyEmail2"
+                placeholder="e.g., Beyoursfinance@gmail.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="companyPhone">Company Phone *</label>
+              <input
+                type="tel"
+                id="companyPhone"
+                placeholder="e.g., +91 7014867167"
+                required
+              />
+            </div>
+
+            <h3>Client Contact Information</h3>
+            <div class="form-group">
+              <label for="clientContactName">Contact Name *</label>
+              <input
+                type="text"
+                id="clientContactName"
+                placeholder="e.g., SIDDHARTH BHANDARI"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="clientPhone">Client Phone *</label>
+              <input
+                type="tel"
+                id="clientPhone"
+                placeholder="e.g., +91 90019 99992"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="clientAddress">Client Address *</label>
+              <textarea
+                id="clientAddress"
+                rows="3"
+                placeholder="e.g., 4 ka 17-18 Jawahar Nagar, the greens apartments flat number 301-302 above workouts the gym 302004 Jaipur"
+                required
+              ></textarea>
+            </div>
+
+            <div class="button-group">
+              <button type="button" id="generatePdfBtn" class="btn btn-primary">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Generate PDF
+              </button>
+              <button type="button" id="resetBtn" class="btn btn-outline">
+                Reset Form
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="preview-section" id="previewSection">
+          <div class="preview-header">
+            <h2>Live Preview</h2>
+            <span class="preview-badge">Real-time</span>
+          </div>
+          <div id="invoicePreview" class="invoice-preview">
+            <div class="empty-preview">
+              <svg
+                width="64"
+                height="64"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                ></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <p>Start filling the form to see your invoice preview</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="script.js"></script>
+    <script>
+      // Register Service Worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("./sw.js")
+            .then((registration) => {
+              console.log("SW registered: ", registration);
+            })
+            .catch((registrationError) => {
+              console.log("SW registration failed: ", registrationError);
+            });
+        });
+      }
+
+      // Install prompt handling
+      let deferredPrompt;
+      const installButton = document.createElement("button");
+      installButton.textContent = "Install App";
+      installButton.className = "btn btn-outline";
+      installButton.style.display = "none";
+      installButton.style.marginTop = "12px";
+      installButton.style.width = "100%";
+
+      window.addEventListener("beforeinstallprompt", (e) => {
+        // Prevent the mini-infobar from appearing
+        e.preventDefault();
+        // Stash the event so it can be triggered later
+        deferredPrompt = e;
+        // Show install button
+        installButton.style.display = "block";
+        installButton.addEventListener("click", () => {
+          // Show the install prompt
+          deferredPrompt.prompt();
+          // Wait for the user to respond to the prompt
+          deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === "accepted") {
+              console.log("User accepted the install prompt");
+            } else {
+              console.log("User dismissed the install prompt");
+            }
+            deferredPrompt = null;
+            installButton.style.display = "none";
+          });
+        });
+      });
+
+      // Add install button to button group
+      window.addEventListener("DOMContentLoaded", () => {
+        const buttonGroup = document.querySelector(".button-group");
+        if (buttonGroup) {
+          buttonGroup.appendChild(installButton);
+        }
+      });
+
+      // Handle app installed
+      window.addEventListener("appinstalled", () => {
+        console.log("PWA was installed");
+        installButton.style.display = "none";
+        deferredPrompt = null;
+      });
+    </script>
+  </body>
+</html>
